@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -8,6 +10,13 @@ const Blog = () => {
     const storedPosts = JSON.parse(localStorage.getItem("posts")) || [];
     setPosts(storedPosts);
   }, []);
+
+  const handleDelete = (index) => {
+    const updatedPosts = posts.filter((_, i) => i !== index);
+    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+    setPosts(updatedPosts);
+    toast.success("Post deleted successfully!");
+  };
 
   return (
     <div className="text-center">
@@ -20,6 +29,7 @@ const Blog = () => {
               <h3 className="text-xl font-bold">{post.title}</h3>
               <p className="text-sm text-muted-foreground">Date: {post.date}</p>
               <p className="mt-2">{post.content}</p>
+            <Button variant="destructive" onClick={() => handleDelete(index)}>Delete</Button>
             </article>
           ))}
         </div>
