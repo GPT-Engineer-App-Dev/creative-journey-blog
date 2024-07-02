@@ -1,10 +1,8 @@
-const Index = () => {
+const Blog = () => {
   return (
     <div className="text-center">
-      <h1 className="text-3xl font-bold mb-4">Welcome to My Personal Blog</h1>
-      <p className="mb-8">A place where I share my thoughts and experiences.</p>
-      <section className="recent-posts">
-        <h2 className="text-2xl font-semibold mb-4">Recent Posts</h2>
+      <h1 className="text-3xl font-bold mb-4">Blog</h1>
+      <section className="blog-posts">
         <div className="grid gap-4">
           <article className="p-4 border rounded">
             <h3 className="text-xl font-bold">Post Title 1</h3>
@@ -17,9 +15,12 @@ const Index = () => {
             <p className="mt-2">This is a short excerpt from the second post...</p>
           </article>
         </div>
+        <div className="mt-8">
+          <button className="px-4 py-2 bg-primary text-primary-foreground rounded">Load More</button>
+        </div>
       </section>
     </div>
   );
 };
 
-export default Index;
+export default Blog;
