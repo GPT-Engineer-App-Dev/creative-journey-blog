@@ -1,4 +1,4 @@
-import authorPhoto from "@/assets/author.jpg";
+import authorPhoto from "../../public/assets/author.jpg";
 
 const About = () => {
   return (
